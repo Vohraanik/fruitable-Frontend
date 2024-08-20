@@ -1,0 +1,205 @@
+{
+  "products": [
+    {
+      "id": "4",
+      "imgSrc": "img/fruite-item-4.jpg",
+      "category": "organics",
+      "name": "Apricots",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "price": "4.99"
+    },
+    {
+      "id": "5",
+      "imgSrc": "img/fruite-item-3.jpg",
+      "category": "Fruits",
+      "name": "Banana",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "price": "4.99"
+    },
+    {
+      "id": "8",
+      "imgSrc": "img/fruite-item-5.jpg",
+      "category": "Fruits",
+      "name": "Grapes",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "price": "5.99"
+    },
+    {
+      "id": "9",
+      "imgSrc": "img/fruite-item-1.jpg",
+      "category": "Fruits",
+      "name": "Oranges",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "price": "4.99"
+    }
+  ],
+  "fruits": [
+    {
+      "id": "8197",
+      "name": "wete",
+      "description": "werwe",
+      "price": "12312"
+    }
+  ],
+  "facilities": [],
+  "reviews": [
+    {
+      "id": "f48f",
+      "name": "anik",
+      "email": "anikvohra3@gmail.com",
+      "review": "its is best",
+      "rating": "4",
+      "productId": null
+    },
+    {
+      "id": "ed05",
+      "name": "anik",
+      "email": "anikvohra3@gmail.com",
+      "review": "its is best",
+      "rating": "2.5",
+      "productId": null
+    },
+    {
+      "id": "7122",
+      "name": "anik",
+      "email": "anikvohra3@gmail.com",
+      "review": "it is best",
+      "rating": "3.5"
+    },
+    {
+      "id": "fc35",
+      "name": "yusuf",
+      "email": "yusuf@gmail.com",
+      "review": "it is best",
+      "rating": "3.5"
+    },
+    {
+      "id": "3fb7",
+      "name": "us",
+      "email": "ayaz@gmail.com",
+      "review": "it is best",
+      "rating": "3.5"
+    },
+    {
+      "id": "f7d8",
+      "name": "a",
+      "email": "ayaz@gmail.com",
+      "review": "it is best",
+      "rating": "3"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "6b40",
+      "coupons": "Anik12",
+      "percantage": "12",
+      "expiry": "2024-05-01"
+    },
+    {
+      "id": "8af2",
+      "coupons": "BOSS12",
+      "percantage": "12",
+      "expiry": "2024-05-10"
+    },
+    {
+      "id": "8841",
+      "coupons": "ANIK23",
+      "percantage": "112",
+      "expiry": "2024-05-11"
+    }
+  ],
+  "contact": [
+    {
+      "id": "0f55",
+      "address": "edf",
+      "email": "ayaz@gmail.com",
+      "number": "1234"
+    },
+    {
+      "id": "3ab5",
+      "address": "swagfat redasdfg",
+      "email": "ayaz@gmail.com",
+      "number": "1234"
+    },
+    {
+      "id": "7083",
+      "address": "swagfat redasdfg",
+      "email": "ayaz@gmail.com",
+      "number": "1234"
+    }
+  ],
+  "subcategory": [
+    {
+      "id": "2eb0",
+      "name": "ddfdfd",
+      "description": "dfdfdfdfdfdfdfdfd"
+    },
+    {
+      "id": "0805",
+      "name": "sd",
+      "description": "sss"
+    },
+    {
+      "id": "f143",
+      "name": "anik",
+      "description": "sdsdsdsdsdsdsd"
+    },
+    {
+      "id": "696a",
+      "name": "anik",
+      "description": "sdsd"
+    },
+    {
+      "id": "2f9d",
+      "name": "sccs",
+      "description": "cscs"
+    },
+    {
+      "id": "ea4c",
+      "name": "anik",
+      "description": "sdsd"
+    },
+    {
+      "id": "4ca6",
+      "name": "dcdc",
+      "description": "dcdcdcd"
+    },
+    {
+      "id": "9f83",
+      "name": "anik",
+      "description": "sdsdsdsdsdsdsd"
+    },
+    {
+      "id": "5c38",
+      "name": "anik",
+      "description": "sdsdsdsdsdsd"
+    },
+    {
+      "id": "a334",
+      "name": "anik",
+      "description": "sss"
+    },
+    {
+      "id": "42e9",
+      "name": "sd",
+      "description": "sdsdsdsdsdsdsd"
+    },
+    {
+      "id": "b51e",
+      "name": "anik",
+      "description": "sss"
+    },
+    {
+      "id": "ca2d",
+      "category": "",
+      "name": "anik",
+      "description": "sdsdsdsdsdsd"
+    },
+    {
+      "id": "2711",
+      "category": "",
+      "name": "anik",
+      "description": "sdsd"
+    }
+  ]
+}
