@@ -20,9 +20,7 @@ function Header(props) {
   }
 
   const handleLogout = () => {  
-    console.log(user._id);
-    
-      
+        
     dispatch(logout(user._id));
   }
 
