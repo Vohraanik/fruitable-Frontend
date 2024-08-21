@@ -13,8 +13,12 @@ const initialState = {
 export const register = createAsyncThunk(
     'auth/register',
     async (data, thunkAPI) => {
+        console.log(data);
+        
         try {
             const response = await axiosInstance.post('users/register', data);
+            console.log(response.data);
+            
             return response.data;
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.message;
@@ -49,8 +53,9 @@ export const authChecked = createAsyncThunk(
         try {
             const response = await axiosInstance.get('users/authChecked');
             console.log(response.data);
-            
-            return response.data;
+          if(response.status === 200){
+            return response.data
+          }
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.message;
             return thunkAPI.rejectWithValue(errorMessage);
@@ -61,7 +66,7 @@ export const authChecked = createAsyncThunk(
 
 export const logout = createAsyncThunk(
     'auth/logout',
-    async (_id, thunkAPI) => {
+    async (_id, {rejectWithValue}) => {
         console.log(_id);
 
         try {
@@ -69,7 +74,7 @@ export const logout = createAsyncThunk(
             return response.data;
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.message;
-            return thunkAPI.rejectWithValue(errorMessage);
+            return rejectWithValue.thunkAPI(errorMessage);
         }
     }
 )
@@ -95,14 +100,14 @@ const authSlice = createSlice({
 
         });
 
-        builder.addCase(register.pending, (state) => {
-            state.isLoading = true;
-            state.error = null;
-        });
+        // builder.addCase(register.pending, (state) => {
+        //     state.isLoading = true;
+        //     state.error = null;
+        // });
 
         // Login
         builder.addCase(login.fulfilled, (state, action) => {
-            console.log(action.payload);
+            console.log(action.payload,"login fullfilled");
             
             state.user = action.payload;
             state.isLoading = false;
@@ -112,15 +117,18 @@ const authSlice = createSlice({
         });
 
         builder.addCase(login.rejected, (state, action) => {
+            console.log(action.payload,"login rejected");
             state.error = action.payload;
             state.isLoading = false;
             state.isLogin=false;
+
         });
 
-        builder.addCase(login.pending, (state) => {
-            state.isLoading = true;
-            state.error = null;
-        });
+        // builder.addCase(login.pending, (state) => {
+
+        //     state.isLoading = true;
+        //     state.error = null;
+        // });
 
         //logout
         builder.addCase(logout.fulfilled, (state) => {
@@ -131,13 +139,17 @@ const authSlice = createSlice({
             state.error = null;
         });
         builder.addCase(authChecked.fulfilled, (state,action) => {
+            console.log("auth  checked fulfilled" ,action.payload);
+            
             state.isLoading = false;
             state.isLogout = false;
-            state.isLogin = true;
+            state.isLogin = false;
             state.error = null;
             state.user = action.payload.data;
         });
         builder.addCase(authChecked.rejected, (state) => {
+            console.log("authChecked  rejected");
+            
             state.user = null;
             state.isLoading = false;
             state.isLogout = true;
