@@ -10,7 +10,7 @@ function Header(props) {
   const { isLogin, user } = useSelector(state => state.auth);
   console.log(user);
   
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();    
 
   const theme = useContext(ThemeContext);
   console.log(theme);
