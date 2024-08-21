@@ -37,9 +37,14 @@ export const addcategory = createAsyncThunk(
 export const editcategory = createAsyncThunk(
     'category/edit',
     async (data, thunkAPI) => {
+        console.log(data);
+        
         try {
             const response = await axios.put(ECOMMERCE_URL+ 'categories/update-categories/' + data._id, data);
+            console.log(response.data);
+            
             return response.data
+    
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
         }
@@ -96,6 +101,8 @@ const categorySlice = createSlice({
         })
 
         builder.addCase(editcategory.fulfilled, (state, action) => {
+            console.log(action.payload);
+            
             state.category = state.category.map((v) => {
                 if (v._id === action.payload.data._id) {
                     return action.payload.data;

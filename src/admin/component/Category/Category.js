@@ -6,22 +6,19 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useFormik } from 'formik';
-import { object, string, boolean } from 'yup';
+import { object, string } from 'yup';
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch, useSelector } from 'react-redux';
 import { addcategory, deletecategory, editcategory, getcategory } from '../../../redux/slice/category.slice';
 import { Backdrop, CircularProgress } from '@mui/material';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 
 function Category() {
     const [open, setOpen] = useState(false);
     const [edit, setEdit] = useState(null);
+    console.log(edit);
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -30,22 +27,19 @@ function Category() {
 
     const category = useSelector(state => state.category);
 
-
     const categorySchema = object({
         name: string().required("Category is required").matches(/^[a-zA-Z'-\s]*$/, 'Invalid name'),
-        description: string().required("Description is required").min(10, "Must be at least 10 characters"),
-        is_active: boolean().required("Status is required"),
+        description: string().required("Description is required"),
     });
 
     const formik = useFormik({
         initialValues: {
             name: '',
             description: '',
-            is_active: '',
         },
         validationSchema: categorySchema,
         onSubmit: (values, { resetForm }) => {
-            if (edit) {
+            if (edit) {  
                 dispatch(editcategory({ ...values, id: edit._id }));
             } else {
                 dispatch(addcategory(values));
@@ -72,6 +66,8 @@ function Category() {
     };
 
     const handleEdit = (data) => {
+        console.log(data);
+        
         formik.setValues(data);
         setEdit(data);
         handleClickOpen();
@@ -80,7 +76,6 @@ function Category() {
     const columns = [
         { field: 'name', headerName: 'Name', width: 130 },
         { field: 'description', headerName: 'Description', width: 130 },
-        { field: 'is_active', headerName: 'Active Status', width: 130 },
         {
             field: 'delete',
             headerName: 'Delete',
@@ -158,27 +153,6 @@ function Category() {
                                         error={touched.description && Boolean(errors.description)}
                                         helperText={touched.description && errors.description}
                                     />
-                                    <Box sx={{ minWidth: 120 }}>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="is_active-label">Active Status</InputLabel>
-                                            <Select
-                                                labelId="is_active-label"
-                                                id="is_active"
-                                                name="is_active"
-                                                value={values.is_active}
-                                                label="Active Status"
-                                                onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                error={touched.is_active && Boolean(errors.is_active)}
-                                            >
-                                                <MenuItem value={true}>Active</MenuItem>
-                                                <MenuItem value={false}>Inactive</MenuItem>
-                                            </Select>
-                                            {touched.is_active && errors.is_active && (
-                                                <p style={{ color: 'red' }}>{errors.is_active}</p>
-                                            )}
-                                        </FormControl>
-                                    </Box>
                                 </DialogContent>
                                 <DialogActions>
                                     <Button onClick={handleClose}>Cancel</Button>
