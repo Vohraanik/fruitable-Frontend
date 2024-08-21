@@ -53,9 +53,8 @@ export const authChecked = createAsyncThunk(
         try {
             const response = await axiosInstance.get('users/authChecked');
             console.log(response.data);
-          if(response.status === 200){
             return response.data
-          }
+        
         } catch (error) {
             const errorMessage = error.response?.data?.message || error.message;
             return thunkAPI.rejectWithValue(errorMessage);
