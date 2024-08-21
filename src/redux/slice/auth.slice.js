@@ -152,7 +152,7 @@ const authSlice = createSlice({
             
             state.user = null;
             state.isLoading = false;
-            state.isLogout = true;
+            state.isLogout = false;
             state.isLogin = false;
             state.error = null;
         });
