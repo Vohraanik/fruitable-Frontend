@@ -82,7 +82,7 @@ function Header(props) {
                   <i className="fa fa-shopping-bag fa-2x" />
                   <span className="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style={{ top: '-5px', left: 15, height: 20, minWidth: 20 }}>{cartCount}</span>
                 </NavLink>
-                <NavLink to={"/login"} className="position-relative me-4 my-auto">
+                <NavLink to={"/login"} className="position-relative me-4 my-auto">  <i className="fas fa-user fa-2x" />    </NavLink>
 
                 {/* {
                   isLogin ? <button onClick={handleLogout}>Logout</button> : <NavLink to={"/login"} className="position-relative me-4 my-auto">
