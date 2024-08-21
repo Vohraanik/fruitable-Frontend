@@ -143,7 +143,7 @@ const authSlice = createSlice({
             
             state.isLoading = false;
             state.isLogout = false;
-            state.isLogin = false;
+            state.isLogin = true;
             state.error = null;
             state.user = action.payload.data;
         });
