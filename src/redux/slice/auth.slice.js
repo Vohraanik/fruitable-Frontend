@@ -50,6 +50,8 @@ export const login = createAsyncThunk(
 export const authChecked = createAsyncThunk(
     'auth/authChecked',
     async (data, thunkAPI) => {
+        console.log(data);
+        
         try {
             const response = await axiosInstance.get('users/authChecked');
             console.log(response.data);
