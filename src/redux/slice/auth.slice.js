@@ -90,6 +90,9 @@ const authSlice = createSlice({
         builder.addCase(register.rejected, (state, action) => {
             state.error = action.payload;
             state.isLoading = false;
+            state.isLogout = false;
+            state.isLogin = false;
+
         });
 
         builder.addCase(register.pending, (state) => {
@@ -111,6 +114,7 @@ const authSlice = createSlice({
         builder.addCase(login.rejected, (state, action) => {
             state.error = action.payload;
             state.isLoading = false;
+            state.isLogin=false;
         });
 
         builder.addCase(login.pending, (state) => {
