@@ -8,7 +8,7 @@ import { logout } from '../../../redux/slice/auth.slice';
 function Header(props) {
   const cart = useSelector(state => state.cart)
   const { isLogin, user } = useSelector(state => state.auth);
-  console.log(user,isLogin);
+  console.log("ooooooooooooooo", user,isLogin);
   
   const dispatch = useDispatch();    
 
