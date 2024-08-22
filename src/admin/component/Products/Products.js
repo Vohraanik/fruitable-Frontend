@@ -116,7 +116,7 @@ function Products() {
       renderCell: (params) => {
         return (
           <img
-            src={params.value.url}
+            src={params?.value?.url}
             alt="product"
             style={{ width: '50px', height: '50px', objectFit: 'cover' }}
           />
@@ -283,7 +283,7 @@ function Products() {
                 />
                 {values?.image &&
                   <img  alt="product" 
-                  src={values?.image.url ? values?.image.url : URL.createObjectURL(values.image)}
+                  src={values?.image?.url ? values?.image.url : URL.createObjectURL(values?.image)}
                     style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                   />
                 }
