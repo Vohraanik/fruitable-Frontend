@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ECOMMERCE_URL } from '../../utils/baseUrl';
+import axiosInstance from '../../utils/axiosInstance';
 
 const initialState = {
     isLoading: false,
@@ -12,7 +13,7 @@ export const getproducts = createAsyncThunk(
     'products/get',
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get(ECOMMERCE_URL+ "products/list-products");
+            const response = await axiosInstance.get("products/list-products");
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
@@ -24,7 +25,7 @@ export const addproducts = createAsyncThunk(
     'products/add',
     async (data, thunkAPI) => {
         try {
-            const response = await axios.post(ECOMMERCE_URL+'products/add-products', data,{
+            const response = await axiosInstance.post('products/add-products', data,{
                 headers: {
                     'Content-Type': 'multipart/form-data'
                     }
@@ -42,7 +43,7 @@ export const editproducts = createAsyncThunk(
     async (data, thunkAPI) => {
 
         try {
-            const response = await axios.put(ECOMMERCE_URL+"products/update-products/" + data._id, data,{
+            const response = await axiosInstance.put("products/update-products/" + data._id, data,{
                 headers: {
                     'Content-Type': 'multipart/form-data'
                     }
@@ -58,7 +59,7 @@ export const deleteproducts = createAsyncThunk(
     'products/delete',
     async (id, thunkAPI) => {
         try {
-            await axios.delete(ECOMMERCE_URL + "products/delete-products/"+ id);
+            await axiosInstance.delete("products/delete-products/"+ id);
             return id;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);

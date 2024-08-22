@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, } from '@reduxjs/toolkit'
 import axios from 'axios'
 import {  ECOMMERCE_URL } from '../../utils/baseUrl'
+import axiosInstance from '../../utils/axiosInstance'
 
 const initialState = {
     isLoading: false,
@@ -13,7 +14,7 @@ export const getcategory = createAsyncThunk(
     'category/get',
     async (_,thunkAPI) => {
         try {
-            const response = await axios.get(ECOMMERCE_URL+"categories/list-categories");
+            const response = await axiosInstance.get("categories/list-categories");
             return response.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
@@ -25,7 +26,7 @@ export const addcategory = createAsyncThunk(
     'category/add',
     async (data,thunkAPI) => {
         try {
-            const response = await axios.post(ECOMMERCE_URL+'categories/add-categories', data)
+            const response = await axiosInstance.post('categories/add-categories', data)
             return response.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
@@ -40,7 +41,7 @@ export const editcategory = createAsyncThunk(
         console.log(data);
         
         try {
-            const response = await axios.put(ECOMMERCE_URL+ 'categories/update-categories/' + data._id, data);
+            const response = await axiosInstance.put('categories/update-categories/' + data._id, data);
             console.log(response.data);
             
             return response.data
@@ -55,7 +56,7 @@ export const deletecategory = createAsyncThunk(
     'category/delete',
     async (id, thunkAPI) => {
         try {
-            await axios.delete(ECOMMERCE_URL + 'categories/delete-categories/' + id);
+            await axiosInstance.delete('categories/delete-categories/' + id);
             return id
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
