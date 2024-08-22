@@ -28,7 +28,7 @@ function Login() {
         },
         validationSchema,
         onSubmit: (values, { resetForm }) => {
-            if (currState === "login") {
+            if (currState === "login") { 
                 dispatch(login(values));
             } else if (currState === "Sign Up") {
                 dispatch(register({ ...values, role: 'user' }));
