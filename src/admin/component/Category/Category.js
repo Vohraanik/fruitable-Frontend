@@ -40,7 +40,7 @@ function Category() {
         validationSchema: categorySchema,
         onSubmit: (values, { resetForm }) => {
             if (edit) {  
-                dispatch(editcategory({ ...values, id: edit._id }));
+                dispatch(editcategory({name:values.name,description:values.description, id: edit._id }));
             } else {
                 dispatch(addcategory(values));
             }
