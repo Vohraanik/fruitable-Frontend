@@ -41,7 +41,7 @@ export const editcategory = createAsyncThunk(
         console.log(data);
         
         try {
-            const response = await axiosInstance.put('categories/update-categories/' + data._id, data);
+            const response = await axiosInstance.put('categories/update-categories/' + data.id, data);
             console.log(response.data);
             
             return response.data
